@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <script src="{% static 'plugins/js/jquery.js' %}"></script>
+    <script src="{% static 'plugins/BoostrapTable/DataTables-1.10.16/js/jquery.dataTables.min.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'plugins/BoostrapTable/DataTables-1.10.16/css/jquery.dataTables.min.css' %}">
+   <table id = "tablaAlumno" class="display" style="width:100%">
+    <thead>
+        <th>Nombre</th>
+        <th>Apellidos</th>
+        <th>Curso</th>
+    </thead>
+    <tbody>
+        {% for alu in object_list %}
+            <tr>
+                <td>{{ alu.nombre }}</td>
+                <td>{{ alu.apellidos }}</td>
+                <td>{{ alu.curso }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <script type="text/javascript">
+
+        $(document).ready(function() {
+        $('#tablaAlumno').DataTable( {
+            "language": {
+                "sProcessing": "Procesando...",
+                "sLengthMenu": "Mostrar _MENU_ registros",
+                "sZeroRecords": "No se encontraron resultados",
+                "sEmptyTable": "Ningún dato disponible en esta tabla",
+                "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                "sInfoPostFix": "",
+                "sSearch": "Buscar:",
+                "sUrl": "",
+                "sInfoThousands": ",",
+                "sLoadingRecords": "Cargando...",
+                "oPaginate": {
+                    "sFirst": "Primero",
+                    "sLast": "Último",
+                    "sNext": "Siguiente",
+                    "sPrevious": "Anterior"
+                },
+                "oAria": {
+                    "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                    "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                }
+            }
+        } );
+    } );
+    </script>
+{% endblock %}
+{% include "footer.html"%}

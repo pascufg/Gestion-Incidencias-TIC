@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    {% for asignatura in object_list %}
+        <div class="card">
+          <div class="card-header">Asignatura</div>
+          <div class="card-body">
+              <img src="{{ asignatura.icono.url }}">
+            <h5 class="card-title">{{ asignatura.asignatura }}</h5>
+            <p class="card-text">{{ asignatura.asignatura.descripcion }}</p>
+               <a href="{% url 'centro:registrar_tema' asignatura_id=asignatura.asignatura_id curso_id=asignatura.curso_id%}" class="btn btn-primary">Registrar temas </a>
+            <a href="{% url 'centro:tema' asignatura_id=asignatura.asignatura_id curso_id=asignatura.curso_id%}" class="btn btn-primary">Ver temario </a>
+          </div>
+        </div>
+        {% endfor %}
+{% endblock %}

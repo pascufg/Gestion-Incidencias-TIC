@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    {% for equipo in object_list %}
+         <div class="card">
+          <div class="card-header">Equipo</div>
+          <div class="card-body">
+            <h5 class="card-title"> Codigo: {{ equipo.codigo }} </h5>
+              <h5 class="card-title">Marca: {{ equipo.marca }} </h5>
+              <h5 class="card-title">Modelo: {{ equipo.modelo }} </h5>
+            <p class="card-text">{{ equipo.descripcion }}</p>
+             <a href="{% url 'alumno:eliminarequipo' equipo.id %}"><button type="button"><img src="{% static 'img/icons/papelera.png'%}"></button></a></td>
+              <a href="{% url 'alumno:editarequipo' equipo.id %}"><button type="button"><img src="{% static 'img/icons/editar.png'%}"></button></a></td>
+          </div>
+        </div>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    {% for alumno in object_list %}
+
+         <div class="card">
+          <div class="card-header">Alumno</div>
+          <div class="card-body">
+            {% if  alumno.foto %}
+                <img src="{{ alumno.foto.url }}">
+            {% else %}
+                <img src="{% static 'img/icons/icono-generico.png__180x180_q85_crop_subsampling-2_upscale.png' %}">
+            {% endif %}
+            <h5 class="card-title">{{ alumno.nombre }} {{ alumno.apellidos }}</h5>
+            <p class="card-text">aaa</p>
+            <a href="{% url 'alumno:perfil' alumno.id %}" class="btn btn-primary">Ver alumno </a>
+          </div>
+        </div>
+
+    {% endfor %}
+{% endblock %}

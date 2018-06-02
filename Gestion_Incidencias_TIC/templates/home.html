@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="col-xs-12">
+        <div class="center-block">
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+            <a title="Registrar una solicitud" class="btn btn-light" href="{% url 'solicitud:registrarsolicitud' %}"><img src="{% static 'img/resgistrar.png'%}"></a>
+            <a title="Buscar mis solicitudes" class="btn btn-light" href="{% url 'solicitud:listarsolicitud' %}"><img src="{% static 'img/buscar.png'%}"></a>
+        </div>
+    </div>
+{% endblock %}

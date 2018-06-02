@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    {% for curso in object_list %}
+        <div class="card">
+          <div class="card-header">Curso</div>
+          <div class="card-body">
+            <h5 class="card-title">{{ curso.curso }}</h5>
+            <p class="card-text">{{ curso.descripcion }}</p>
+            <a href="{% url 'alumno:curso' curso_id=curso.curso.id %}" class="btn btn-primary">Ver alumnos </a>
+            <a href="{% url 'centro:curso_profesor' curso_id=curso.curso.id %}" class="btn btn-primary">Ver curso </a>
+          </div>
+        </div>
+        {% endfor %}
+{% endblock %}

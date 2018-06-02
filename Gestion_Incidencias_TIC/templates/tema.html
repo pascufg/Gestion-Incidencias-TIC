@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+
+    <script src="{% static 'plugins/js/jquery.js' %}"></script>
+    <script src="{% static 'plugins/BoostrapTable/DataTables-1.10.16/js/jquery.dataTables.min.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'plugins/BoostrapTable/DataTables-1.10.16/css/jquery.dataTables.min.css' %}">
+
+   <table id = "tablaTema" class="display" style="width:100%">
+    <thead>
+        <th>Tema</th>
+        <th>Fichero</th>
+        <th>Asignatura</th>
+    </thead>
+    <tbody>
+        {% for tema in object_list %}
+            <tr>
+                <td>{{ tema.nombre }}</td>
+                <td><a href="{{ tema.fichero.url }}">{{ tema.nombreFichero }}</a></td>
+                <td>{{ tema.asignatura }}</td>
+            </tr>
+
+        {% endfor %}
+        </tbody>
+    </table>
+    <script type="text/javascript">
+        $(document).ready(function() {
+        $('#tablaTema').DataTable( {
+            "language": {
+                "sProcessing": "Procesando...",
+                "sLengthMenu": "Mostrar _MENU_ registros",
+                "sZeroRecords": "No se encontraron resultados",
+                "sEmptyTable": "Ningún dato disponible en esta tabla",
+                "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                "sInfoPostFix": "",
+                "sSearch": "Buscar:",
+                "sUrl": "",
+                "sInfoThousands": ",",
+                "sLoadingRecords": "Cargando...",
+                "oPaginate": {
+                    "sFirst": "Primero",
+                    "sLast": "Último",
+                    "sNext": "Siguiente",
+                    "sPrevious": "Anterior"
+                },
+                "oAria": {
+                    "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                    "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                }
+            }
+        } );
+    } );
+    </script>
+{% endblock %}
+{% include "footer.html"%}

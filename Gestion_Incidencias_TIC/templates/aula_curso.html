@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    {% if object_list %}
+    {% for curso in object_list %}
+        <div class="card">
+          <div class="card-header">{{ curso.curso}} {{ curso.curso.letra }}</div>
+          <div class="card-body">
+            <h5 class="card-title">{{ curso.aula.codigo}}-{{ curso.aula}}</h5>
+            <a href="{% url 'alumno:equipoaula' aula_id=curso.aula_id%}" class="btn btn-primary">Mostrar equipos</a>
+            <a href="{% url 'alumno:registrarequipo' aula_id=curso.aula_id%}" class="btn btn-primary">Registrar equipos</a>
+          </div>
+        </div>
+        {% endfor %}
+    {% else %}
+        <h2>No existen aulas para este curso</h2>
+    {% endif %}
+{% endblock %}
