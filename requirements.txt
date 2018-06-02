@@ -1,0 +1,10 @@
+Django >= 1.8
+django-mptt >=0.6
+easy_thumbnails >= 2.0
+django-polymorphic >= 0.7
+python-dateutil
+django-filer
+django-libs
+Pillow
+pytz
+easy_thumbnails
