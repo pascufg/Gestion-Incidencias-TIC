@@ -1,7 +1,7 @@
 from django.urls import reverse_lazy
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 
-from app.Gestion_Profesores.models import ProfesorCurso
+from app.Gestion_Profesores.models import ProfesorCurso, Profesor
 
 
 class ListarCursoProfesor(ListView):
@@ -22,3 +22,7 @@ class ListarCursoAsignaturaProfesor(ListView):
         queryset = super(ListarCursoAsignaturaProfesor, self).get_queryset()
         print(queryset)
         return queryset.filter(profesor_id=self.kwargs['profesor_id'])
+
+class Perfil(DetailView):
+    model = Profesor
+    template_name='perfil_profe.html'

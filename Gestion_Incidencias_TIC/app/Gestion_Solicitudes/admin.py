@@ -12,9 +12,9 @@ class SolicitudesRegristado(admin.ModelAdmin):
         model = Solicitud
 
 class ActividadRegistrada(admin.ModelAdmin):
-    list_display = ["__unicode__", "registro", "usuario","solicitud","resolucion","solucion"]
-    list_filter = ["usuario","solicitud"]
-    search_fields = ["usuario","solicitud"]
+    list_display = ["__unicode__", "registro", "alumno","solicitud","resolucion","solucion"]
+    list_filter = ["alumno","solicitud"]
+    search_fields = ["alumno","solicitud"]
     class Meta:
         model = Actividad
 

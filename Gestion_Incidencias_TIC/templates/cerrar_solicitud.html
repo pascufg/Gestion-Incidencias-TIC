@@ -1,12 +1,11 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-
-
-     <form method="POST" action="" enctype="multipart/form-data">{% csrf_token %}
+    {{ form.media }}
+    <form method="POST">{% csrf_token %}
+        <h7>*Formato dd/mm/aaaa H:M</h7>
     {{ form.as_p }}
         <button type="submit">Guardar</button>
     </form>
-
 {% endblock %}
 {% include "footer.html"%}

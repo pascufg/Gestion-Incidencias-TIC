@@ -63,6 +63,9 @@
         <input id="idUsuario" name="idUsuario" type="text" placeholder="Login do usuario" class="form-control input-md" required="" readonly=readonly value="{{ alumno.curso }}">
   </div>
 </div>
+    <p class="mt-3" style="color: #0c0c0c">Si deseas cambiar tu constraseña pulse <a style="color: #0e90d2" href="{% url 'password_change' %}">aqui</a>
+
+</p>
 </fieldset>
 </form>
 {% endblock %}

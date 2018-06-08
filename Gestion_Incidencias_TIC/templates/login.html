@@ -3,29 +3,48 @@
 <html lang="es">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="{% static 'plugins/bootstrap/css/bootstrap.min.css'%}"></link>
-      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
-      <link href="{% static 'css/signin.css'%}" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+       <script src="{% static 'plugins/js/jquery.js' %}"></script>
+      <script src="{% static 'plugins/bootstrap/js/bootstrap.min.js' %}"></script>
   </head>
   <body>
-    <script src="{% static 'plugins/js/jquery.js' %}"></script>
-    <script src="{% static 'plugins/bootstrap/js/bootstrap.min.js' %}"></script>
-    <!--<h1>{{ titulo_login }}</h1>-->
+<div class="container">
+        <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+            <div class="panel panel-info" >
+                    <div class="panel-heading">
+                        <div class="panel-title">Gestion Incidencias TIC</div>
+                        <div style="float:right; font-size: 80%; position: relative; top:-10px"> <a href="{% url 'password_reset' %}"> ¿Olvidaste tu contraseña?</a></div>
+                    </div>
 
-    <form class="form-signin" method="POST" action="">{%  csrf_token %}
-        <label for="user" class="sr-only">Usuario</label>
-        <input type="text" id="user" class="form-control" name="username" placeholder="Usuario" required autofocus>
-          <label for="inputPassword" class="sr-only">Password</label>
-          <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Contraseña" required>
-          <div class="checkbox mb-3">
-            <label>
-              <input type="checkbox" value="remember-me"> Guardar
-            </label>
-              <a href="{% url 'password_reset' %}"> ¿Olvidaste tu contraseña?</a>
-          </div>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
-        <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
-    </form>
+                    <div style="padding-top:30px" class="panel-body" >
+
+                        <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+
+                         <form class="form-signin" method="POST" action="">{%  csrf_token %}
+
+                            <div style="margin-bottom: 25px" class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        <input id="user" type="text" class="form-control" name="username" value="" placeholder="usuario">
+                                    </div>
+
+                             <div style="margin-bottom: 25px" class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                        <input id="inputPassword" type="password" class="form-control" name="password" placeholder="contraseña">
+                                    </div>
+
+                                <div style="margin-top:10px" class="form-group">
+                                    <!-- Button -->
+
+                                    <div class="col-sm-12 controls">
+                                      <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+        </div>
+    </div>
+
   </body>
 </html>
 

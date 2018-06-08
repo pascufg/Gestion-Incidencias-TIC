@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+   <form class="form-horizontal">
+<fieldset>
+
+<legend>    Perfil </legend>
+
+    <div class="form-group">
+        <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+            {% if  profesor.foto %}
+                <img src="{{ profesor.foto.url }}">
+            {% else %}
+                <img src="{% static 'img/icons/icono-generico.png__180x180_q85_crop_subsampling-2_upscale.png' %}">
+            {% endif %}
+        </div>
+    </div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="idNome">Nombre</label>
+  <div class="col-md-5">
+  <input id="idNome" name="idNome" type="text" placeholder="" class="form-control input-md" required="" readonly=readonly value="{{ profesor.nombre }}">
+
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="idDepto">Apellidos</label>
+  <div class="col-md-5">
+  <input id="idDepto" name="idDepto" type="text" placeholder="" class="form-control input-md" required="" readonly=readonly value="{{ profesor.apellidos }}">
+
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="idUsuario">DNI</label>
+  <div class="col-md-5">
+  <input id="idUsuario" name="idUsuario" type="text" class="form-control input-md" required="" readonly=readonly value="{{ profesor.dni }}">
+
+  </div>
+</div>
+
+    <div class="form-group">
+  <label class="col-md-4 control-label" for="idUsuario">Email</label>
+  <div class="col-md-5">
+  <input id="idUsuario" name="idUsuario" type="text" placeholder="Login do usuario" class="form-control input-md" required="" readonly=readonly value="{{ profesor.email }}">
+
+  </div>
+</div>
+
+    <div class="form-group">
+  <label class="col-md-4 control-label" for="idUsuario">Centro</label>
+  <div class="col-md-5">
+  <input id="idUsuario" name="idUsuario" type="text" placeholder="Login do usuario" class="form-control input-md" required="" readonly=readonly value="{{ profesor.centro }}">
+
+  </div>
+</div>
+</div>
+</fieldset>
+</form>
+{% endblock %}
+{% include "footer.html"%}
+</body>
+</html>

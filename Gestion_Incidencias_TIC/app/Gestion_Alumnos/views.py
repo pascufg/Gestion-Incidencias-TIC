@@ -24,7 +24,8 @@ class RegistarAlumno(CreateView):
     template_name = 'registraralumno.html'
 
     def get_success_url(self):
-        return reverse_lazy('centro:inicio')
+        messages.add_message(self.request, messages.SUCCESS, 'Alumno registrado correctamente')
+        return reverse_lazy('alumno:registraralumno')
 
 
 class RegistarEquipo(CreateView):
@@ -43,6 +44,7 @@ class RegistarEquipo(CreateView):
         return initial
 
     def get_success_url(self):
+        messages.add_message(self.request, messages.SUCCESS, 'Equipo registrado correctamente')
         return reverse_lazy('centro:inicio')
 
 
@@ -79,7 +81,7 @@ class ListarEquipoAula(ListView):
 class EliminarEquipo(DeleteView):
     model = Equipo
     def get_success_url(self):
-        messages.add_message(self.request, messages.SUCCESS, 'Equipo eliminado correctamente')
+        #messages.add_message(self.request, messages.SUCCESS, 'Equipo eliminado correctamente')
         return reverse_lazy('centro:inicio')
 
 class EditarEquipo(UpdateView):

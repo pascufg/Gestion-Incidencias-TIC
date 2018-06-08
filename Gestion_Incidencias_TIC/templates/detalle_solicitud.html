@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+   <form class="form-horizontal">
+<fieldset>
+
+<legend>Solicitud</legend>
+
+
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="idNome">CI</label>
+      <div class="col-md-5">
+      <input id="idNome" name="idNome" type="text" placeholder="" class="form-control input-md" required="" readonly=readonly value="{{ solicitud.CI }}">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="idNome">Estado</label>
+      <div class="col-md-5">
+      <input id="idNome" name="idNome" type="text" placeholder="" class="form-control input-md" required="" readonly=readonly value="{{ solicitud.estado }}">
+      </div>
+    </div>
+       <div class="form-group">
+      <label class="col-md-4 control-label" for="idNome">Prioridad</label>
+      <div class="col-md-5">
+      <input id="idNome" name="idNome" type="text" placeholder="" class="form-control input-md" required="" readonly=readonly value="{{ solicitud.prioridad }}">
+      </div>
+    </div>
+       <div class="form-group">
+      <label class="col-md-4 control-label" for="idNome">Tipo</label>
+      <div class="col-md-5">
+      <input id="idNome" name="idNome" type="text" placeholder="" class="form-control input-md" required="" readonly=readonly value="{{ solicitud.tipo }}">
+      </div>
+    </div>
+
+           <div class="form-group">
+      <label class="col-md-4 control-label" for="idNome">Registro</label>
+      <div class="col-md-5">
+      <input id="idNome" name="idNome" type="text" placeholder="" class="form-control input-md" required="" readonly=readonly value="{{ solicitud.registro }}">
+      </div>
+    </div>
+           <div class="form-group">
+      <label class="col-md-4 control-label" for="idNome">Alumno</label>
+      <div class="col-md-5">
+      <input id="idNome" name="idNome" type="text" placeholder="" class="form-control input-md" required="" readonly=readonly value="{{ solicitud.alumno }}">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="idNome">Equipo</label>
+      <div class="col-md-5">
+      <input id="idNome" name="idNome" type="text" placeholder="" class="form-control input-md" required="" readonly=readonly value="{{ solicitud.equipo }}">
+      </div>
+    </div>
+           <div class="form-group">
+      <label class="col-md-4 control-label" for="idNome">Descripcion</label>
+      <div class="col-md-5">
+          <textarea  id="idNome" name="idNome" type="text" placeholder="" class="form-control input-md" required="" readonly=readonly>{{ solicitud.descripcion }}</textarea>
+      </div>
+    </div>
+
+
+    </fieldset>
+    </form>
+    {% endblock %}
+    {% include "footer.html"%}
+    </body>
+    </html>

@@ -46,7 +46,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',
     'app.Gestion_Alumnos',
     'app.Gestion_Centros',
     'app.Gestion_Solicitudes',

@@ -1,6 +1,7 @@
 import pkg_resources
 from cms.middleware import user
 from django.conf import settings
+from django.contrib import messages
 from django.contrib.auth.models import Group
 from django.core.mail import send_mail
 from django.db.models.sql.compiler import cursor_iter
@@ -53,15 +54,17 @@ def privacidad(request):
     return render(request, "privacidad.html")
 
 def inicio(request):
+    print(request.user.groups)
     titulo = "Bienvenido"
     if request.user.is_authenticated():
-        titulo = "Bienvenido %s" % (request.user)
-        
-        print(request.user.id)
+        titulo = "Bienvenido %s" % (request.user.username)
+
+        grupo = request.user.groups.all
         curso = AsignaturaCurso.objects.all()
     context = {
         "titulo_login": titulo,
-        "curso":curso
+        "curso":curso,
+        "grupo":grupo
     }
     return render(request, "home.html", context)
 
@@ -116,6 +119,7 @@ class RegistrarTema(CreateView):
         return initial
 
     def get_success_url(self):
+        messages.add_message(self.request, messages.SUCCESS, 'El tema se ha registrado correctamente')
         return reverse_lazy('centro:inicio')
 
 class RegistrarAula(CreateView):
@@ -123,6 +127,7 @@ class RegistrarAula(CreateView):
     template_name = 'registrar_aula.html'
 
     def get_success_url(self):
+        messages.add_message(self.request, messages.SUCCESS, 'El aula se ha registrado correctamente')
         return reverse_lazy('centro:inicio')
 
 

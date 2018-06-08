@@ -8,8 +8,15 @@
                         <div class="alert alert-{{ message.tags }}">{{ message }}</div>
                     {% endfor %}
                 {% endif %}
-            <a title="Registrar una solicitud" class="btn btn-light" href="{% url 'solicitud:registrarsolicitud' %}"><img src="{% static 'img/resgistrar.png'%}"></a>
-            <a title="Buscar mis solicitudes" class="btn btn-light" href="{% url 'solicitud:listarsolicitud' %}"><img src="{% static 'img/buscar.png'%}"></a>
+
+            {% if user.alumno %}
+                    <a title="Registrar una solicitud" class="btn btn-light" href="{% url 'solicitud:registrarsolicitud' %}"><img src="{% static 'img/resgistrar.png'%}"></a>
+                    <a title="Buscar mis solicitudes" class="btn btn-light" href="{% url 'solicitud:listarsolicitud' %}"><img src="{% static 'img/buscar.png'%}"></a>
+             {% else %}
+                <a title="Gestionar incidencias" class="btn btn-light" href="{% url 'solicitud:mostrarsolicitudes' %}"><img src="{% static 'img/buscar.png'%}"></a>
+            {% endif %}
+
+
         </div>
     </div>
 {% endblock %}
