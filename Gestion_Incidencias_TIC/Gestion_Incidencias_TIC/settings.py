@@ -31,8 +31,8 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'pascualfg94@gmail.com'
-EMAIL_HOST_PASSWORD = 'pistacholoco'
+EMAIL_HOST_USER = '********'
+EMAIL_HOST_PASSWORD = '*******'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
@@ -98,7 +98,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'GestionIncidenciasTIC',
         'USER': 'pascu',
-        'PASSWORD': 'saratoga69',
+        'PASSWORD': '********',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
